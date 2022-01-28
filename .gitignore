@@ -1,8 +1,9 @@
-/bin/
+\bin\
 # ---> Java
 # Compiled class file
 *.class
-
+#A TestFile for MAIN
+start.java
 # Log file
 *.log
 
