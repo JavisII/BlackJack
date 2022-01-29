@@ -1,5 +1,8 @@
 package Prefabs;
 
+import Game.CardData;
+import Game.ICardObject;
+
 public class ExampleCard implements ICardObject {
 	private int number;
 	private int symbol;
@@ -22,6 +25,13 @@ public class ExampleCard implements ICardObject {
 	public void setCardData(CardData cardData) {
 		number = cardData.cardNumber;
 		symbol = cardData.cardType;
+	}
+	@Override
+	public int getValue() {
+		if(number>10) {
+			return 10;
+		}
+		return number;
 	}
 
 
