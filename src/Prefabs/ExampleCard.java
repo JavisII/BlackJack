@@ -1,7 +1,6 @@
 package Prefabs;
 
 public class ExampleCard implements ICardObject {
-	private int value; //den eigentlichen wert der karte
 	private int number;
 	private int symbol;
 	
