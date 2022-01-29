@@ -24,15 +24,6 @@ public class ExampleCard implements ICardObject {
 		number = cardData.cardNumber;
 		symbol = cardData.cardType;
 	}
-	@Override
-	public void CalculateValue() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void CalculateValue(boolean useAssAsEleven) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
