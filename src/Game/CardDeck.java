@@ -34,11 +34,19 @@ public class CardDeck {
 		Collections.shuffle(avaiableCards);
 		Collections.shuffle(avaiableCards);
 		Collections.shuffle(avaiableCards);
+		Collections.shuffle(avaiableCards);
+		Collections.shuffle(avaiableCards);
+		Collections.shuffle(avaiableCards);
+		Collections.shuffle(avaiableCards);
 		
 		Console.Log("Deck", "Setup Complete!");
+		
 		
 	}
 	ICardObject GrabCardObject() {
 		return avaiableCards.remove(0);
+	}
+	void PutCardAway(ICardObject card) {
+		usedCards.add(card);
 	}
 }

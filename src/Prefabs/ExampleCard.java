@@ -28,9 +28,8 @@ public class ExampleCard implements ICardObject {
 	}
 	@Override
 	public int getValue() {
-		if(number>10) {
-			return 10;
-		}
+		if(number == 1) {return 11;}
+		if(number>10) {return 10;}
 		return number;
 	}
 
