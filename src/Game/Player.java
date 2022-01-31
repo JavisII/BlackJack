@@ -2,12 +2,15 @@ package Game;
 
 import java.util.ArrayList;
 
+import Core.Console;
+import Rendering.ConsoleRenderEngine;
+
 public abstract class Player {
-	private ArrayList<ICardObject> handArrayList = new ArrayList<ICardObject>();
+	public ArrayList<ICardObject> handArrayList = new ArrayList<ICardObject>();
 	
-	String name = "";
+	public String name = "";
 	int money = 0;
-	int bet = 0;
+	public int bet = 0;
 	
 	Player Reset() {
 		for (ICardObject iCardObject : handArrayList) {
@@ -35,12 +38,12 @@ public abstract class Player {
 		money -= this.bet;
 		return this;
 	}
-	Player setMoney(int money) {
+	public Player setMoney(int money) {
 		this.money = money;
 		return this;
 	}
 
-	Player setName(String name) {
+	public Player setName(String name) {
 		this.name = name;
 		return this;
 	}
@@ -49,7 +52,7 @@ public abstract class Player {
 	int getBet() {return bet;}
 	public int getMoney() {return money;}
 	
-	int getValue() {
+	public int getValue() {
 		
 		int value = 0;
 		int ass = 0;
@@ -73,6 +76,8 @@ public abstract class Player {
 	}
 	
 	void Turn() {
+		ConsoleRenderEngine.Render();
+		if(getValue()==21) {Console.Log(name, "BlackJack!!!"); return;}
 		decision resultDecision = Decide();
 		
 		if(resultDecision == decision.hit) {
@@ -86,7 +91,8 @@ public abstract class Player {
 			GrabCard();
 			return;
 		}
-		if(getValue()>=21||resultDecision==null) {return;}
+		if(getValue()>21) {Console.Log(name, "Bust!!! :(");return;}
+
 		Turn();
 	}
 	

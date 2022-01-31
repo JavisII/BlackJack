@@ -1,12 +1,14 @@
 package Game;
 
+import Core.Console;
 import Prefabs.ExampleCard;
 
 public class Dealer extends Player {
 
 	@Override
 	decision Decide() {
-		if(getValue()< 17) {return decision.hit;}
+		if(getValue()< 17) {Console.Log(name, "Hit!");return decision.hit;}
+		Console.Log(name, "Stand!");
 		return decision.stand;
 	}
 
