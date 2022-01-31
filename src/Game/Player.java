@@ -33,7 +33,13 @@ public abstract class Player {
 		if(bet>money) {
 			this.bet = money;
 		}else {
-			this.bet = bet;
+			if(bet>=GameManager.requiredBet) {
+				this.bet = bet;
+			}else {
+				this.bet = GameManager.requiredBet;
+				Console.Log(name, "A bet of " + GameManager.requiredBet + "$ is required! You bet was therefor changed to that amount!") ;
+			}
+			
 		}
 		money -= this.bet;
 		return this;

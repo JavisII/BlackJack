@@ -15,6 +15,7 @@ public class CardDeck {
 		Setup(1);
 	}
 	public CardDeck(int totalDecks){
+		GameManager.instance.deckCount = totalDecks;
 		Setup(totalDecks);
 	}
 	

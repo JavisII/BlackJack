@@ -6,9 +6,13 @@ import Core.Console;
 import Rendering.ConsoleRenderEngine;
 
 public class GameManager {
-	private float winMultiplier = 1.5f;
-	public int bank = 0;
 	
+	static final int requiredBet = 5;
+	private float winMultiplier = 1.5f;
+	
+	
+	public int bank = 0;
+	int deckCount = 0;
 	public static GameManager instance;
 	CardDeck cardDeck;
 	boolean gameRoutineStarted = false;
@@ -38,6 +42,7 @@ public class GameManager {
 		if(gameRoutineStarted) {return;}
 		gameRoutineStarted = true;
 		while(true){
+			if(cardDeck.avaiableCards.size()<=30) {Console.Log("CardDeck", "Less thank 30 cards left, use new deck!"); setDeck(new CardDeck(deckCount));}
 			if(playerQue.size()>0) {
 				players.addAll(playerQue);
 				playerQue.removeAll(playerQue);
